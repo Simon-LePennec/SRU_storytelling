@@ -1,3 +1,3 @@
-# demo_map
+# SRU_scrollytelling
 
-demo map : https://simon-lepennec.github.io/demo_map/
+SRU_scrollytelling : https://simon-lepennec.github.io/SRU_storytelling/
