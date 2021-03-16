@@ -146,10 +146,13 @@ if (config.showMarkers) {
 var scroller = scrollama();
 
 map.on("load", function() {
+
+    map.addControl(new mapboxgl.NavigationControl());
+
     if (config.use3dTerrain) {
         map.addSource('mapbox-dem', {
             'type': 'raster-dem',
-            'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+            'url': 'mapbox://styles/mapbox/light-v10',
             'tileSize': 512,
             'maxzoom': 14
         });
