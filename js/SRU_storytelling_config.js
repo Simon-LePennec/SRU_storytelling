@@ -4,17 +4,17 @@ var config = {
     showMarkers: false,
     theme: 'dark',
     use3dTerrain: false,
-    title: 'Glaciers of Glacier National Park',
-    subtitle: 'Change in coverage from 1998 to 2015',
+    title: 'Loi SRU',
+    subtitle: 'Quels sont les territoires concernés par les quotas de logements sociaux ?',
     byline: '',
-    footer: 'Source: Story text from Wikipedia, August 2019. Data from <a href="https://www.usgs.gov/centers/norock/science/retreat-glaciers-glacier-national-park">USGS</a>',
+    footer: '<ul>Sources: <li><a href="https://www.cohesion-territoires.gouv.fr/loi-solidarite-et-renouvellement-urbain-sru">Ministère de la Cohésion des Territoires et des Relations avec les Collectivités Territoriales</a></li><li><a href="https://www.legifrance.gouv.fr/loda/id/LEGIARTI000029329940/2014-08-04/">Légifrance</a></li><li><a href="https://fr.wikipedia.org/wiki/Loi_relative_%C3%A0_la_solidarit%C3%A9_et_au_renouvellement_urbains#%C3%89volution_de_l\'article_55">Wikipédia</a></li></ul>',
     chapters: [
         {
             id: 'glacier-np',
-            alignment: 'full',
-            title: 'Glacier National Park Glaciers',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg/800px-2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg',
-            description: 'Glacier National Park is dominated by mountains which were carved into their present shapes by the huge glaciers of the last ice age. These glaciers have largely disappeared over the last 12,000 years. Evidence of widespread glacial action is found throughout the park in the form of U-shaped valleys, cirques, arêtes, and large outflow lakes radiating like fingers from the base of the highest peaks. Since the end of the ice ages, various warming and cooling trends have occurred. The last recent cooling trend was during the Little Ice Age, which took place approximately between 1550 and 1850. During the Little Ice Age, the glaciers in the park expanded and advanced, although to nowhere near as great an extent as they had during the Ice Age.',
+            alignment: 'center',
+            title: 'La loi du 13 décembre 2000 relative à la solidarité et au renouvellement urbain, appelée Loi SRU, est un texte complexe qui modifie en profondeur le droit de l’urbanisme et du logement en France. L’article 55 de cette loi impose à certaines communes de disposer d’un nombre minimum de logements sociaux.',
+            image: './data/illustration.jpg',
+            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent en fonction de la population et la dynamique démographique de chaque commune, mais aussi de celles de son intercommunalité et de la région dans laquelle elle se trouve. Des exeptions existent également, et les critères ont fait l\objet de plusieurs ajustements dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -41,9 +41,9 @@ var config = {
         {
             id: 'harrison1998',
             alignment: 'left',
-            title: 'Harrison Glacier, 1998',
+            title: 'I. La règle générale',
             image: '',
-            description: 'Harrison Glacier is located in the US state of Montana in Glacier National Park. Situated on a southeast facing ridge immediately south of Mount Jackson, Harrison Glacier is the largest glacier in Glacier National Park. Compared to many of the vanishing glaciers in Glacier National Park, Harrison Glacier has a much higher altitude accumulation zone (approximately 9,000 feet (2,700 m)) which has allowed it to maintain some equilibrium in its glacier mass balance.',
+            description: 'Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -61,9 +61,9 @@ var config = {
         {
             id: 'harrison2015',
             alignment: 'left',
-            title: 'Harrison Glacier, 2015',
+            title: 'II.',
             image: '',
-            description: 'Between 1998 and 2015, Harrison Glacier lost 169 acres of surface area (about 37%).',
+            description: 'Dans les communes appartenant à des territoires dont la situation locale ne justifie pas un renforcement des obligations de production, cette obligation est fixée à 20 % de logements sociaux.',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -86,9 +86,9 @@ var config = {
         {
             id: 'blackfoot1998',
             alignment: 'left',
-            title: 'Blackfoot Glacier, 1998',
+            title: 'III.',
             image: '',
-            description: 'Blackfoot Glacier is the second largest of the remaining 25 glaciers in Glacier National Park, Montana. Blackfoot Glacier is just to the north of Blackfoot Mountain and near Jackson Glacier. When first documented in 1850, the glacier also included the now separate Jackson Glacier and together, they covered 1,875 acres (7.59 km2). In 1850, there were an estimated 150 glaciers in the park. Glaciologists have stated that by the year 2030, all the glaciers in the park may disappear.',
+            description: 'Les communes de plus de 15 000 habitants en croissance démographique de plus de 5 %, ne se situant pas dans les territoires précités et justifiant d’un effort de production supplémentaire au vu du fonctionnement de leur marché local de l’habitat, ont également l’obligation de disposer de 20 % de logements sociaux',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -101,9 +101,9 @@ var config = {
         {
             id: 'blackfoot2015',
             alignment: 'left',
-            title: 'Blackfoot Glacier, 2015',
+            title: 'IV. Les exeptions à la règle',
             image: '',
-            description: 'Between 1998 and 2015, Blackfoot Glacier lost 31 acres of surface area (about 8%).',
+            description: 'De plus, la loi égalité et citoyenneté du 27 janvier 2017 a révisé les conditions d’exemption des communes du dispositif SRU et un décret, pris par le ministre en charge du logement en début de chaque période triennale, fixe, pour une durée de trois ans, la liste des communes exemptées des obligations de mixité sociale',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
