@@ -4,8 +4,8 @@ var config = {
     showMarkers: false,
     theme: 'dark',
     use3dTerrain: false,
-    title: 'Loi SRU',
-    subtitle: 'Quels sont les territoires concernés par les quotas de logements sociaux ?',
+    title: 'La loi "SRU"',
+    subtitle: 'Quels territoires concernés par les quotas de logements sociaux ?',
     byline: '',
     footer: '<ul>Sources: <li><a href="https://www.cohesion-territoires.gouv.fr/loi-solidarite-et-renouvellement-urbain-sru">Ministère de la Cohésion des Territoires et des Relations avec les Collectivités Territoriales</a></li><li><a href="https://www.legifrance.gouv.fr/loda/id/LEGIARTI000029329940/2014-08-04/">Légifrance</a></li><li><a href="https://fr.wikipedia.org/wiki/Loi_relative_%C3%A0_la_solidarit%C3%A9_et_au_renouvellement_urbains#%C3%89volution_de_l\'article_55">Wikipédia</a></li></ul>',
     chapters: [
@@ -17,7 +17,7 @@ var config = {
             description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent en fonction de la population et la dynamique démographique de chaque commune, mais aussi de celles de son intercommunalité et de la région dans laquelle elle se trouve. Des exeptions existent également, et les critères ont fait l\objet de plusieurs ajustements dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>',
             location: {
                 center: [-4.88236, 46.71703],
-                zoom: 5.25,
+                zoom: 5,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -39,23 +39,45 @@ var config = {
             ]
         },
         {
-            id: 'harrison1998',
+            id: '01',
             alignment: 'left',
             title: 'I. La règle générale',
             image: '',
-            description: 'Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social',
+            description: '<p>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</p><p>Voici le découpage des intercommunalités françaises, et les communes de plus de 1 500, 3 000 et 15 000 habitants au 1er janvier 2021</p> <p>(Source : EPCI, Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE). </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [],
+            onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 1
+            }],
             onChapterExit: [
-                // {
-                //     layer: 'gnpglaciers-2015',
-                //     opacity: 0
-                // }
+            ]
+        },
+        {
+            id: '02',
+            alignment: 'left',
+            title: '',
+            image: '',
+            description: '<p>Et voici les  (Source : ) </p>',
+            location: {
+                center: [-4.88236, 46.71703],
+                zoom: 5.25,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 1
+            }],
+            onChapterExit: [
+                {
+                    layer: 'EPCI',
+                    opacity: 0
+                }
             ]
         },
         {

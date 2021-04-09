@@ -209,6 +209,34 @@ map.on("load", function() {
             chapter.onChapterExit.forEach(setLayerOpacity);
         }
     });
+
+    var layers = map.getStyle().layers;
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
+
+    map.addSource('EPCI', {
+        type: 'geojson',
+        data: './data/epci.geojson'
+    });
+    map.addLayer({
+        'id': 'EPCI',
+        'type': 'line',
+        'source': 'EPCI',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'line-color': 'black', //#808080
+            'line-width': 0.4,
+            'line-opacity': 0
+        }
+    },firstSymbolId);
+
 });
 
 // setup resize event
