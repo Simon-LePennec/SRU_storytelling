@@ -14,7 +14,7 @@ var config = {
             alignment: 'center',
             title: 'La loi du 13 décembre 2000 relative à la solidarité et au renouvellement urbain, appelée Loi SRU, est un texte complexe qui modifie en profondeur le droit de l’urbanisme et du logement en France. L’article 55 de cette loi impose à certaines communes de disposer d’un nombre minimum de logements sociaux.',
             image: './data/illustration.jpg',
-            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent en fonction de la population et la dynamique démographique de chaque commune, mais aussi de celles de son intercommunalité et de la région dans laquelle elle se trouve. Des exeptions existent également, et les critères ont fait l\objet de plusieurs ajustements dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>',
+            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité et de la région dans laquelle elle se trouve. Des exeptions existent, et ces critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5,
@@ -43,7 +43,7 @@ var config = {
             alignment: 'left',
             title: 'I. La règle générale',
             image: '',
-            description: '<p>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</p><p>Voici le découpage des intercommunalités françaises, et les communes de plus de 1 500, 3 000 et 15 000 habitants au 1er janvier 2021</p> <p>(Source : EPCI, Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE). </p>',
+            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p><p>Pour commencer il existe donc un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589">ici</a>. Voici donc les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#bd0026"></span> : 15 000 et plus</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#e00007"></span> : ]3 000 - 15 000]</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#ff2704"></span> : ]1 500 - 3 000[ (dans l\'agglomération parisienne)</p></p>      <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -52,7 +52,7 @@ var config = {
             },
             onChapterEnter: [{
                 layer: 'EPCI',
-                opacity: 1
+                opacity: 0
             }],
             onChapterExit: [
             ]
@@ -62,7 +62,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Et voici les  (Source : ) </p>',
+            description: '<p>Et voici le découpage des intercommunalités françaises à la même date (Source : Admin-Express, IGN) </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -74,10 +74,6 @@ var config = {
                 opacity: 1
             }],
             onChapterExit: [
-                {
-                    layer: 'EPCI',
-                    opacity: 0
-                }
             ]
         },
         {

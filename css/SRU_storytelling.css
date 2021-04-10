@@ -100,3 +100,21 @@ a, a:hover, a:visited {
 .mapboxgl-ctrl-top-right {
     margin-right: 10px;
 }
+
+.legend {
+    margin-bottom: -3px;
+}
+
+.innerLegendLine {
+    margin-top: -3px;
+    margin-bottom: -3px;
+    margin-left: 16px;
+}
+
+.legend-key {
+    display: inline-block;
+    border-radius: 5%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
