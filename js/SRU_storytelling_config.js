@@ -43,7 +43,7 @@ var config = {
             alignment: 'left',
             title: 'I. La règle générale',
             image: '',
-            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p><p>Pour commencer il existe donc un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589">ici</a>. Voici donc les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#bd0026"></span> : 15 000 et plus</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#e00007"></span> : ]3 000 - 15 000]</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#ff2704"></span> : ]1 500 - 3 000[ (dans l\'agglomération parisienne)</p></p>      <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
+            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p>    <p>Pour commencer il existe un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589" target="_blank">ici</a>.</p>    <p>Voici les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p> <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p><p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:18px;height:8px;border:2px solid black;"></a> : Unité urbaine de Paris</p></p>    <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm" target="_blank">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -51,11 +51,25 @@ var config = {
                 bearing: 0.00
             },
             onChapterEnter: [{
-                layer: 'EPCI',
+                layer: 'communes_1500_UUparis',
+                opacity: 1
+            },{
+                layer: 'communes_3000',
+                opacity: 1
+            },{
+                layer: 'UUparis_2020',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'communes_1500_UUparis',
+                opacity: 0
+            },{
+                layer: 'communes_3000',
+                opacity: 0
+            },{
+                layer: 'UUparis_2020',
                 opacity: 0
             }],
-            onChapterExit: [
-            ]
         },
         {
             id: '02',
@@ -72,8 +86,20 @@ var config = {
             onChapterEnter: [{
                 layer: 'EPCI',
                 opacity: 1
+            },{
+                layer: 'communes_1500_UUparis',
+                opacity: 1
+            },{
+                layer: 'communes_3000',
+                opacity: 1
+            },{
+                layer: 'UUparis_2020',
+                opacity: 1
             }],
-            onChapterExit: [
+            onChapterExit: [{
+                layer: 'EPCI',
+                opacity: 0
+            }
             ]
         },
         {

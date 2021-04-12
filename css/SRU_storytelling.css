@@ -108,13 +108,12 @@ a, a:hover, a:visited {
 .innerLegendLine {
     margin-top: -3px;
     margin-bottom: -3px;
-    margin-left: 16px;
 }
 
 .legend-key {
     display: inline-block;
-    border-radius: 5%;
-    width: 10px;
+    border-radius: 3%;
+    width: 20px;
     height: 10px;
     margin-right: 5px;
 }

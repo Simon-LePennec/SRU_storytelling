@@ -133,9 +133,11 @@ var map = new mapboxgl.Map({
     zoom: config.chapters[0].location.zoom,
     bearing: config.chapters[0].location.bearing,
     pitch: config.chapters[0].location.pitch,
-    interactive: false,
+    interactive: true,
     transformRequest: transformRequest
 });
+
+map.scrollZoom.disable();
 
 if (config.showMarkers) {
     var marker = new mapboxgl.Marker({ color: config.markerColor });
@@ -210,6 +212,9 @@ map.on("load", function() {
         }
     });
 
+
+    //START add custom layers
+
     var layers = map.getStyle().layers;
     var firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
@@ -219,9 +224,67 @@ map.on("load", function() {
         }
     }
 
+    
+    map.addSource('communes_3000', {
+        type: 'geojson',
+        data: './data/layers/communes_3000.geojson'
+    });
+    map.addLayer({
+        'id': 'communes_3000',
+        'type': 'fill',
+        'source': 'communes_3000',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'fill-color': '#ff9409', //#ff9101
+            //'fill-outline-color': '#d1d1d1',
+            'fill-opacity': 0
+        }
+    });
+
+
+    map.addSource('communes_1500_UUparis', {
+        type: 'geojson',
+        data: './data/layers/communes_1500_UUparis.geojson'
+    });
+    map.addLayer({
+        'id': 'communes_1500_UUparis',
+        'type': 'fill',
+        'source': 'communes_1500_UUparis',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'fill-color': '#ffcb47', // #fff701
+            //'fill-outline-color': '#d1d1d1',
+            'fill-opacity': 0
+        }
+    });
+
+
+    map.addSource('UUparis_2020', {
+        type: 'geojson',
+        data: './data/layers/UUparis_2020.geojson'
+    });
+    map.addLayer({
+        'id': 'UUparis_2020',
+        'type': 'line',
+        'source': 'UUparis_2020',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'line-color': 'black', //#808080
+            'line-width': 1,
+            'line-opacity': 0
+        }
+    });
+
+
     map.addSource('EPCI', {
         type: 'geojson',
-        data: './data/epci.geojson'
+        data: './data/layers/epci.geojson'
     });
     map.addLayer({
         'id': 'EPCI',
@@ -231,11 +294,13 @@ map.on("load", function() {
             'visibility': 'visible'
         },
         'paint': {
-            'line-color': 'black', //#808080
+            'line-color': '#808080', //#808080
             'line-width': 0.4,
             'line-opacity': 0
         }
-    },firstSymbolId);
+    });
+
+    //END add custom layers
 
 });
 
