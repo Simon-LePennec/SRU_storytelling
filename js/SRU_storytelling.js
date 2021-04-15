@@ -244,7 +244,7 @@ map.on("load", function() {
             //'fill-outline-color': '#d1d1d1',
             'fill-opacity': 0
         }
-    });
+    },firstSymbolId);
 
     map.addSource('communes_1500_UUparis', {
         type: 'geojson',
@@ -262,7 +262,7 @@ map.on("load", function() {
             //'fill-outline-color': '#d1d1d1',
             'fill-opacity': 0
         }
-    });
+    },firstSymbolId);
 
 
     map.addSource('communes_15000', {
@@ -281,9 +281,9 @@ map.on("load", function() {
             //'fill-outline-color': '#d1d1d1',
             'fill-opacity': 0
         }
-    });
+    },firstSymbolId);
 
-    
+
     map.addSource('UUparis_2020', {
         type: 'geojson',
         data: './data/layers/UUparis_2020.geojson'
@@ -300,7 +300,7 @@ map.on("load", function() {
             'line-width': 1,
             'line-opacity': 0
         }
-    });
+    },firstSymbolId);
 
 
     map.addSource('EPCI', {
@@ -315,11 +315,53 @@ map.on("load", function() {
             'visibility': 'visible'
         },
         'paint': {
-            'line-color': '#808080', //#808080
-            'line-width': 0.4,
+            'line-color': 'black', //#808080
+            'line-width': 0.2,
             'line-opacity': 0
         }
+    },firstSymbolId);
+
+
+    map.addSource('EPCI_mask', {
+        type: 'geojson',
+        data: './data/layers/EPCI_mask.geojson'
     });
+    // map.addLayer({
+    //     'id': 'EPCI_mask',
+    //     'type': 'fill',
+    //     'source': 'EPCI_mask',
+    //     'layout': {
+    //         'visibility': 'visible'
+    //     },
+    //     'paint': {
+    //         'fill-color': 'black', //#f4f4f2
+    //         'fill-opacity': 0
+    //     }
+    // });
+
+    
+    map.loadImage(
+        './data/img/Pattern_Test.png',
+        function (err, image) {
+            // Throw an error if something went wrong
+            if (err) throw err;
+
+            // Declare the image
+            map.addImage('pattern', image);
+
+            // Use it
+            map.addLayer({
+                'id': 'EPCI_mask',
+                'type': 'fill',
+                'source': 'EPCI_mask',
+                'paint': {
+                    'fill-pattern': 'pattern',
+                    'fill-opacity': 0,
+                    'fill-outline-color': 'black'
+                }
+            },firstSymbolId);
+        }
+    );
 
     //END add custom layers
 
