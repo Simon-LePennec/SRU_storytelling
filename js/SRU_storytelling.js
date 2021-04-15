@@ -224,7 +224,10 @@ map.on("load", function() {
         }
     }
 
-    
+
+
+
+
     map.addSource('communes_3000', {
         type: 'geojson',
         data: './data/layers/communes_3000.geojson'
@@ -242,7 +245,6 @@ map.on("load", function() {
             'fill-opacity': 0
         }
     });
-
 
     map.addSource('communes_1500_UUparis', {
         type: 'geojson',
@@ -263,6 +265,25 @@ map.on("load", function() {
     });
 
 
+    map.addSource('communes_15000', {
+        type: 'geojson',
+        data: './data/layers/communes_15000.geojson'
+    });
+    map.addLayer({
+        'id': 'communes_15000',
+        'type': 'fill',
+        'source': 'communes_15000',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'fill-color': '#e20016', //#ff9101
+            //'fill-outline-color': '#d1d1d1',
+            'fill-opacity': 0
+        }
+    });
+
+    
     map.addSource('UUparis_2020', {
         type: 'geojson',
         data: './data/layers/UUparis_2020.geojson'

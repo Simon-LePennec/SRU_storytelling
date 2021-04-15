@@ -10,11 +10,11 @@ var config = {
     footer: '<ul>Sources: <li><a href="https://www.cohesion-territoires.gouv.fr/loi-solidarite-et-renouvellement-urbain-sru">Ministère de la Cohésion des Territoires et des Relations avec les Collectivités Territoriales</a></li><li><a href="https://www.legifrance.gouv.fr/loda/id/LEGIARTI000029329940/2014-08-04/">Légifrance</a></li><li><a href="https://fr.wikipedia.org/wiki/Loi_relative_%C3%A0_la_solidarit%C3%A9_et_au_renouvellement_urbains#%C3%89volution_de_l\'article_55">Wikipédia</a></li></ul>',
     chapters: [
         {
-            id: 'glacier-np',
+            id: '00',
             alignment: 'center',
             title: 'La loi du 13 décembre 2000 relative à la solidarité et au renouvellement urbain, appelée Loi SRU, est un texte complexe qui modifie en profondeur le droit de l’urbanisme et du logement en France. L’article 55 de cette loi impose à certaines communes de disposer d’un nombre minimum de logements sociaux.',
             image: './data/illustration.jpg',
-            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité et de la région dans laquelle elle se trouve. Des exeptions existent, et ces critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>',
+            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité et de sa région. Des exeptions existent, et les critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour analyser la répartition spatiale des territoires concernés par les quotas de logements sociaux en France</p>    <p style="text-align:center"><i>Vous pouvez vous déplacer sur la carte, et modifier le zoom avec les contrôles en haut à droite de l\'écran</i></p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5,
@@ -22,20 +22,8 @@ var config = {
                 bearing: 0.00
             },
             onChapterEnter: [
-                {
-                    layer: 'gnpglaciers-1998',
-                    opacity: 0.25
-                },
-                {
-                    layer: 'glaciernp-boundary',
-                    opacity: 0.25
-                }
             ],
             onChapterExit: [
-                {
-                    layer: 'glaciernp-boundary',
-                    opacity: 0
-                }
             ]
         },
         {
@@ -76,7 +64,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Et voici le découpage des intercommunalités françaises à la même date (Source : Admin-Express, IGN) </p>',
+            description: '<p>Le texte cite ensuite les "agglomérations ou intercommunalités". Il s\'agit de l\'échelle géographique des <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a> dont voici le découpage au 1er janvier 2021. Ceux ci doivent comporter au moins une commune de plus de 15 000 habitants</p>    <p>(Source : Admin-Express, IGN) </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -87,20 +75,55 @@ var config = {
                 layer: 'EPCI',
                 opacity: 1
             },{
+                layer: 'communes_15000',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'EPCI',
+                opacity: 0
+            },{
+                layer: 'communes_15000',
+                opacity: 0
+            }]
+        },
+        {
+            id: '03',
+            alignment: 'left',
+            title: '',
+            image: '',
+            description: '<p>Enfin, l\'EPCI lui même doit compter plus de 50 000 habitants. En applicant un négatif sur les EPCI de moins de 50 000 habitant on voit enfin apparaitre les communes à priori soumises à la règle de 25% de logement social au regard du parc principal</p>',
+            location: {
+                center: [-4.88236, 46.71703],
+                zoom: 5.25,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 0
+            },{
                 layer: 'communes_1500_UUparis',
                 opacity: 1
             },{
                 layer: 'communes_3000',
                 opacity: 1
             },{
-                layer: 'UUparis_2020',
+                layer: 'communes_15000',
                 opacity: 1
             }],
             onChapterExit: [{
                 layer: 'EPCI',
                 opacity: 0
-            }
-            ]
+            },{
+                layer: 'communes_1500_UUparis',
+                opacity: 0
+            },{
+                layer: 'communes_3000',
+                opacity: 0
+            },{
+                layer: 'communes_15000',
+                opacity: 0
+            }]
         },
         {
             id: 'harrison2015',
