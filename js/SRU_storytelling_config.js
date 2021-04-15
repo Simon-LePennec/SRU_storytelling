@@ -24,7 +24,8 @@ var config = {
             onChapterEnter: [
             ],
             onChapterExit: [
-            ]
+            ],
+            flyAnimation: true
         },
         {
             id: '01',
@@ -58,6 +59,7 @@ var config = {
                 layer: 'UUparis_2020',
                 opacity: 0
             }],
+            flyAnimation: true
         },
         {
             id: '02',
