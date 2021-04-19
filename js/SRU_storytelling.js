@@ -343,7 +343,7 @@ map.on("load", function() {
 
     
     map.loadImage(
-        './data/img/Pattern_Test.png',
+        './data/img/Pattern_cross.png',
         function (err, image) {
             // Throw an error if something went wrong
             if (err) throw err;

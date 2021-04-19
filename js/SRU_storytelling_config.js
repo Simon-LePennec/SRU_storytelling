@@ -32,7 +32,7 @@ var config = {
             alignment: 'left',
             title: 'I. La règle générale',
             image: '',
-            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p>    <p>Pour commencer il existe un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589" target="_blank">ici</a>.</p>    <p>Voici les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:18px;height:8px;border:2px solid black;"></a> : Unité urbaine de Paris</p></p>    <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm" target="_blank">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
+            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p>    <p>Pour commencer il existe un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589" target="_blank">ici</a>.</p>    <p>Voici les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:18px;height:8px;border:2px solid black;background-color:white"></a> : Unité urbaine de Paris</p></p>    <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm" target="_blank">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -66,7 +66,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Le texte cite ensuite les "agglomérations ou intercommunalités". Il s\'agit de l\'échelle géographique des <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a> dont voici le découpage au 1er janvier 2021. Ceux ci doivent comporter au moins une commune de plus de 15 000 habitants</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;"></a> : Limites des EPCI</p></p>    <p>(Source : Admin-Express, IGN) </p>',
+            description: '<p>Le texte cite ensuite les "agglomérations ou intercommunalités". Il s\'agit de l\'échelle géographique des <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a> dont voici le découpage au 1er janvier 2021. Ceux ci doivent comporter au moins une commune de plus de 15 000 habitants</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-color:white"></a> : Limites des EPCI</p></p>    <p>(Source : Admin-Express, IGN) </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -105,7 +105,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Enfin, l\'EPCI lui même doit compter plus de 50 000 habitants. En applicant un masque sur les EPCI de moins de 50 000 habitant ou ne comptant pas au moins une commune de plus de 15 000 habitants, on voit enfin apparaitre les communes à priori soumises à la règle de 25% de logement social au regard du parc principal</p>',
+            description: '<p>Enfin, l\'EPCI lui même doit compter plus de 50 000 habitants. En appliquant un masque sur les EPCI de moins de 50 000 habitant ou ne comptant pas au moins une commune de plus de 15 000 habitants, on voit enfin apparaitre les communes à priori soumises à la règle de 25% de logement social au regard du parc principal</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-image:url(\'./data/img/Pattern_cross.png\');background-color:white"></a> : EPCI dont les communes ne sont pas soumises à la règle de mixité sociale (moins de 50 000 habitants ou sans commune de plus de 15 000 habitants)</p>    ',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -145,7 +145,24 @@ var config = {
                 opacity: 0
             }]
         },
+        
         {
+            id: '03_conclusion',
+            alignment: 'left',
+            title: '',
+            image: '',
+            description: '<p>Le résultat obtenu interroge alors, car certaines "grandes" villes semblent échapper à l\'obligation de construire du logement social à cause de leur isolement (Abbeville, Cahors, Millau ...). Ainsi que d\'autres plus petites mais en continuité de tissu urbain de grandes métropoles, qui appartiennent à des EPCI limitrophes moins peuplés (comme Ramonville au sud de Toulouse)</p>',
+            location: {
+                center: [-4.88236, 46.71703],
+                zoom: 5.25,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            onChapterEnter: [
+            ],
+            onChapterExit: [
+            ]
+        },{
             id: '04',
             alignment: 'left',
             title: 'II. Les communes soumises au seuil de 20% de logement social',
