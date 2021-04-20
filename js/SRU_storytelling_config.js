@@ -14,7 +14,7 @@ var config = {
             alignment: 'center',
             title: 'La loi du 13 décembre 2000 relative à la solidarité et au renouvellement urbain, appelée Loi SRU, est un texte complexe qui modifie en profondeur le droit de l’urbanisme et du logement en France. L’article 55 de cette loi impose à certaines communes de disposer d’un nombre minimum de logements sociaux.',
             image: './data/img/illustration.jpg',
-            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité et de sa région. Des exeptions existent, et les critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour identifier les territoires concernés par les quotas de logements sociaux en France</p>    <p style="text-align:center"><i>Vous pouvez vous déplacer sur la carte, et zoomer avec les contrôles en haut à droite de l\'écran</i></p>',
+            description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité, son unité urbaine et sa région. Des exeptions existent, et les critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour identifier les territoires concernés par les quotas de logements sociaux en France</p>    <p style="text-align:center"><i>Vous pouvez vous déplacer sur la carte, et zoomer avec les contrôles en haut à droite de l\'écran</i></p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5,
@@ -63,6 +63,30 @@ var config = {
         },
         {
             id: '02',
+            alignment: 'left',
+            title: '',
+            image: '',
+            description: '<p>Une des difficultés pour appréhender ce texte est qu\'il combine deux échelles échelles territoriales : celle des "agglomérations" qui correspondent aux Unités urbaines, et celle des "intercommunalités" qui correspondent aux <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a>.</p>    <p>Vous pouvez switcher entre ces deux échelles avec le bouton ci-dessous</p>    <p> <a id="uu">Unités urbaines</a> <label class="switch"><input type="checkbox"><span class="slider round"></span></label> <a id="epci">EPCI</a></p>',
+            location: {
+                center: [-4.88236, 46.71703],
+                zoom: 5.25,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            onChapterEnter: [{
+                layer: 'UU',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'UU',
+                opacity: 0
+            },{
+                layer: 'EPCI',
+                opacity: 0
+            }]
+        },
+        {
+            id: '02_bis',
             alignment: 'left',
             title: '',
             image: '',

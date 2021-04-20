@@ -226,10 +226,6 @@ map.on("load", function() {
         }
     }
 
-
-
-
-
     map.addSource('communes_3000', {
         type: 'geojson',
         data: './data/layers/communes_3000.geojson'
@@ -321,7 +317,25 @@ map.on("load", function() {
             'line-width': 0.2,
             'line-opacity': 0
         }
-    },firstSymbolId);
+    });
+
+    map.addSource('UU', {
+        type: 'geojson',
+        data: './data/layers/UU.geojson'
+    });
+    map.addLayer({
+        'id': 'UU',
+        'type': 'line',
+        'source': 'UU',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'line-color': 'black', //#808080
+            'line-width': 0.5,
+            'line-opacity': 0
+        }
+    });
 
 
     map.addSource('EPCI_mask', {
