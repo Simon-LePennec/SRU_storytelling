@@ -205,6 +205,11 @@ map.on("load", function() {
                 });
             });
         }
+        if (chapter.id == "02") {
+            // document.getElementById("switch_checkbox").checked = false;
+            // document.getElementById("epci").style.color = 'white';
+            // document.getElementById("uu").style.color = 'grey';
+        }
     })
     .onStepExit(response => {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
@@ -328,24 +333,24 @@ map.on("load", function() {
         'type': 'line',
         'source': 'UU',
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         'paint': {
             'line-color': 'black', //#808080
-            'line-width': 0.5,
+            'line-width': 0.6,
             'line-opacity': 0
         }
     });
 
 
-    map.addSource('EPCI_mask', {
+    map.addSource('EPCI_UU_mask', {
         type: 'geojson',
-        data: './data/layers/EPCI_mask.geojson'
+        data: './data/layers/EPCI_UU_mask.geojson'
     });
     // map.addLayer({
-    //     'id': 'EPCI_mask',
+    //     'id': 'EPCI_UU_mask',
     //     'type': 'fill',
-    //     'source': 'EPCI_mask',
+    //     'source': 'EPCI_UU_mask',
     //     'layout': {
     //         'visibility': 'visible'
     //     },
@@ -367,9 +372,9 @@ map.on("load", function() {
 
             // Use it
             map.addLayer({
-                'id': 'EPCI_mask',
+                'id': 'EPCI_UU_mask',
                 'type': 'fill',
-                'source': 'EPCI_mask',
+                'source': 'EPCI_UU_mask',
                 'paint': {
                     'fill-pattern': 'pattern',
                     'fill-opacity': 0,
@@ -380,6 +385,39 @@ map.on("load", function() {
     );
 
     //END add custom layers
+
+
+
+    //START Horrible hack to handle multiple switch toggle checkboxes display and animation
+    var checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function(event){
+
+            var epci = document.getElementsByClassName("epci");
+            var uu = document.getElementsByClassName("uu");
+
+            if (event.target.checked) {
+                map.setLayoutProperty('EPCI','visibility','none');
+                map.setLayoutProperty('UU','visibility','visible');
+                for(var i=0; i<epci.length; i++) {
+                    checkboxes[i].checked = true;
+                    epci[i].style.color = 'grey';
+                    uu[i].style.color = 'white';
+                }
+            }
+            else {
+                map.setLayoutProperty('UU','visibility','none');
+                map.setLayoutProperty('EPCI','visibility','visible');
+                for(var i=0; i<epci.length; i++) {
+                    checkboxes[i].checked = false;
+                    epci[i].style.color = 'white';
+                    uu[i].style.color = 'grey';
+                }
+            }
+        })
+    })
+    //END Horrible hack to handle multiple switch toggle checkboxes display and animation
 
 });
 

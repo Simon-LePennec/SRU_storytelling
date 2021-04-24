@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/branigan/cjz37rcb003ib1cr3s8rnkt2d',
+    style: 'mapbox://styles/kamisol/cknrja5tz0tx017mj4j2q81uh',
     accessToken: 'pk.eyJ1Ijoia2FtaXNvbCIsImEiOiJjamR2cXl3dzUwM3l0MnJvNnp5ZHlpczUwIn0.3pm6x8Nm9rsl0I7RML6zJw',
     showMarkers: false,
     theme: 'dark',
@@ -17,7 +17,7 @@ var config = {
             description: '<p>La liste des communes concernées par cet article est issue de critères particulièrement complexes. Plusieurs seuils de logements sociaux à atteindre existent selon la population et la dynamique démographique de chaque commune, de son intercommunalité, son unité urbaine et sa région. Des exeptions existent, et les critères ont été ajustés plusieurs fois dans le temps.</p><p>Cette datavisualiation propose de revoir tous ces critères en cartes pour identifier les territoires concernés par les quotas de logements sociaux en France</p>    <p style="text-align:center"><i>Vous pouvez vous déplacer sur la carte, et zoomer avec les contrôles en haut à droite de l\'écran</i></p>',
             location: {
                 center: [-4.88236, 46.71703],
-                zoom: 5,
+                zoom: 4.90,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -66,7 +66,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Une des difficultés pour appréhender ce texte est qu\'il combine deux échelles échelles territoriales : celle des "agglomérations" qui correspondent aux Unités urbaines, et celle des "intercommunalités" qui correspondent aux <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a>.</p>    <p>Vous pouvez switcher entre ces deux échelles avec le bouton ci-dessous</p>    <p> <a id="uu">Unités urbaines</a> <label class="switch"><input type="checkbox"><span class="slider round"></span></label> <a id="epci">EPCI</a></p>',
+            description: '<p>Une des difficultés du texte est qu\'il utilise deux échelles échelles territoriales pour définir le besoin en logements sociaux d\'une commune : <ul><li>Les "intercommunalités" qui correspondent aux <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a>. Ce sont des regroupements adminitratifs de communes qui couvrent tout le territoire.</li> <li>Et les "agglomérations" qui correspondent aux Unités urbaines de l\'INSEE. Soit un découpage basé sur la morphologie urbaine qui ne couvre que les territoires les plus urbanisés.</li></ul></p>    <p>Vous pouvez switcher entre ces deux échelles avec le bouton ci-dessous</p>    <p> <a class="epci">EPCI</a> <label class="switch"><input id="switch_checkbox" type="checkbox"><span class="slider round"></span></label> <a class="uu">Unités urbaines</a> </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -74,6 +74,9 @@ var config = {
                 bearing: 0.00
             },
             onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 1
+            },{
                 layer: 'UU',
                 opacity: 1
             }],
@@ -90,7 +93,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Le texte cite ensuite les "agglomérations ou intercommunalités". Il s\'agit de l\'échelle géographique des <a href="https://fr.wikipedia.org/wiki/%C3%89tablissement_public_de_coop%C3%A9ration_intercommunale" target="_blank">EPCI</a> dont voici le découpage au 1er janvier 2021. Ceux ci doivent comporter au moins une commune de plus de 15 000 habitants</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-color:white"></a> : Limites des EPCI</p></p>    <p>(Source : Admin-Express, IGN) </p>',
+            description: '<p>Pour être soumise à la règle de mixité sociale et en plus de la règle de 1 500 ou 3 000 habitants, chaque commune doit appartenir à l\'une ou l\'autre de ces échelles et celle ci comporter au moins une commune de plus de 15 000 habitants et compter plus de 50 000 habitants au total.</p>    <p class="legend">Population municipale légale par commune 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p></p>    <p> <a class="epci">EPCI</a> <label class="switch"><input id="switch_checkbox" type="checkbox"><span class="slider round"></span></label> <a class="uu">Unités urbaines</a> </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -99,6 +102,9 @@ var config = {
             },
             onChapterEnter: [{
                 layer: 'EPCI',
+                opacity: 1
+            },{
+                layer: 'UU',
                 opacity: 1
             },{
                 layer: 'communes_15000',
@@ -112,6 +118,9 @@ var config = {
             }],
             onChapterExit: [{
                 layer: 'EPCI',
+                opacity: 0
+            },{
+                layer: 'UU',
                 opacity: 0
             },{
                 layer: 'communes_15000',
@@ -129,7 +138,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Enfin, l\'EPCI lui même doit compter plus de 50 000 habitants. En appliquant un masque sur les EPCI de moins de 50 000 habitant ou ne comptant pas au moins une commune de plus de 15 000 habitants, on voit enfin apparaitre les communes à priori soumises à la règle de 25% de logement social au regard du parc principal</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-image:url(\'./data/img/Pattern_cross.png\');background-color:white"></a> : EPCI dont les communes ne sont pas soumises à la règle de mixité sociale (moins de 50 000 habitants ou sans commune de plus de 15 000 habitants)</p>    ',
+            description: '<p>En appliquant un masque sur les EPCI et Unités urbaines ne répondant pas aux critères, on voit enfin apparaitre les communes potentiellement soumises à la règle de 25% de logement social au regard du parc principal</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-image:url(\'./data/img/Pattern_cross.png\');background-color:white"></a> : Territoires dont les communes ne sont pas soumises à la règle de mixité sociale, indifféremment de leur population.</p>    ',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -140,7 +149,7 @@ var config = {
                 layer: 'EPCI',
                 opacity: 0
             },{
-                layer: 'EPCI_mask',
+                layer: 'EPCI_UU_mask',
                 opacity: 1
             },{
                 layer: 'communes_1500_UUparis',
@@ -156,7 +165,7 @@ var config = {
                 layer: 'EPCI',
                 opacity: 0
             },{
-                layer: 'EPCI_mask',
+                layer: 'EPCI_UU_mask',
                 opacity: 0
             },{
                 layer: 'communes_1500_UUparis',
