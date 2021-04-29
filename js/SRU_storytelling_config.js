@@ -138,7 +138,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>En appliquant un masque sur les EPCI et Unités urbaines ne répondant pas aux critères, on voit enfin apparaitre les communes potentiellement soumises à la règle de 25% de logement social au regard du parc principal</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-image:url(\'./data/img/Pattern_cross.png\');background-color:white"></a> : Territoires dont les communes ne sont pas soumises à la règle de mixité sociale, indifféremment de leur population.</p>    ',
+            description: '<p>En appliquant un masque sur les EPCI et Unités urbaines ne répondant pas aux critères, on voit apparaitre les communes potentiellement soumises à la règle de 25% de logement social au regard du parc principal</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#e20016"></span> > 15 000</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:19px;height:9px;border:1px solid black;background-image:url(\'./data/img/Pattern_cross.png\');background-color:white"></a> : Territoires dont les communes ne sont pas soumises à la règle de mixité sociale, indifféremment de leur population.</p>    ',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -184,17 +184,45 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Le résultat obtenu interroge alors, car certaines "grandes" villes semblent échapper à l\'obligation de construire du logement social à cause de leur isolement (Abbeville, Cahors, Millau ...). Ainsi que d\'autres plus petites mais en continuité de tissu urbain de grandes métropoles, qui appartiennent à des EPCI limitrophes moins peuplés (comme Ramonville au sud de Toulouse)</p>',
+            description: '<p>On constate que certaines "grandes" villes semblent échapper à l\'obligation de construire du logement social à cause de leur isolement : Abbeville, Cahors, Millau ...</p>    <p>Mais l\'usage de l\'échelle des unités urbaines permet d\'éviter que des villes plus petites en continuité de tissu urbain de grandes métropoles, puissent jouer sur les frontières administratives des EPCI pour échapper à la règle.</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-            ],
-            onChapterExit: [
-            ]
+            onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 0
+            },{
+                layer: 'EPCI_UU_mask',
+                opacity: 1
+            },{
+                layer: 'communes_1500_UUparis',
+                opacity: 1
+            },{
+                layer: 'communes_3000',
+                opacity: 1
+            },{
+                layer: 'communes_15000',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'EPCI',
+                opacity: 0
+            },{
+                layer: 'EPCI_UU_mask',
+                opacity: 0
+            },{
+                layer: 'communes_1500_UUparis',
+                opacity: 0
+            },{
+                layer: 'communes_3000',
+                opacity: 0
+            },{
+                layer: 'communes_15000',
+                opacity: 0
+            }]
         },{
             id: '04',
             alignment: 'left',
