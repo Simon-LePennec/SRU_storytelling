@@ -32,7 +32,7 @@ var config = {
             alignment: 'left',
             title: 'I. La règle générale',
             image: '',
-            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p>    <p>Il existe donc un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589" target="_blank">ici</a>.</p>    <p>Voici les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:18px;height:8px;border:2px solid black;background-color:white"></a> : Unité urbaine de Paris</p></p>    <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm" target="_blank">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
+            description: '<p><i>"Les communes de plus de 3 500 habitants – et de 1 500 habitants dans l’agglomération parisienne – appartenant à des agglomérations ou intercommunalités de plus de 50 000 habitants comprenant au moins une commune de plus de 15 000 habitants doivent disposer de 25 % de logement social"</i></p>    <p>Il existe donc un seuil de population différent qui ciblait à l\'origine la région Île de France, mais que la loi Elan a recentré sur "l\'agglomération parisienne". Il s\'agit en réalité de l\'unité urbaine de Paris telle que définie par l\'INSEE <a href="https://www.insee.fr/fr/information/4802589" target="_blank">ici</a>.</p>    <p>Voici les limites de cette unité urbaine et les communes de plus de 3 000 et 1 500 habitants au 1er janvier 2021</p>    <p class="legend">Population municipale légale 2021 :</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ff9409"></span> > 3 000 (hors agglomération parisienne)</p>    <p class="innerLegendLine"><span class="legend-key" style="background-color:#ffcb47"></span> > 1 500 (dans l\'agglomération parisienne) </p><p class="innerLegendLine" style="margin-top:10px"><a style="display:inline-block;width:18px;height:8px;border:2px solid black;background-color:white"></a> : Unité urbaine de Paris</p></p>    <p>(Source : Admin-Express, IGN | Population légale 2018, Recensement de la population, INSEE | Code de la construction et de l\'habitation <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038833969/2019-09-01" target="_blank">Article L302-5</a> | <a href="https://questions.assemblee-nationale.fr/q15/15-19395QE.htm" target="_blank">JO de l’Assemblée nationale du 09/07/2019</a>).</p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -138,7 +138,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: '<p>Voici les EPCI et unités urbaines de plus de 50 000 habitants avec au moins une commune de plus de 15 000 habitants.</p>    <p>On comprend ici que l\'usage de l\'échelle des unités urbaines sert à éviter que des villes en continuité de tissu urbain de grandes métropoles puissent jouer sur les frontières administratives des EPCI pour échapper à la règle</p>    <p> <a class="epci">EPCI</a> <label class="switch"><input id="switch_checkbox" type="checkbox"><span class="slider round"></span></label> <a class="uu">Unités urbaines</a> </p>',
+            description: '<p>Voici les EPCI et unités urbaines de plus de 50 000 habitants avec au moins une commune de plus de 15 000 habitants.</p>    <p>On comprend ici que l\'usage de l\'échelle des unités urbaines sert à éviter que des villes en continuité de tissu urbain de grandes métropoles puissent jouer sur les frontières administratives des EPCI pour échapper à la règle. Ramonville par exemple (sud de Toulouse) apprtient à un EPCI différent de la métropole, les deux communes sont pourtant en continuté directe et reliées par une ligne de métro.</p>    <p> <a class="epci">EPCI</a> <label class="switch"><input id="switch_checkbox" type="checkbox"><span class="slider round"></span></label> <a class="uu">Unités urbaines</a> </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
@@ -172,7 +172,6 @@ var config = {
                 opacity: 0
             }]
         },
-        
         {
             id: '03',
             alignment: 'left',
@@ -221,19 +220,53 @@ var config = {
         {
             id: '04',
             alignment: 'left',
-            title: 'II. Les communes soumises au seuil de 20% de logement social',
+            title: 'II. Les territoires soumis au seuil de 20% de logement social',
             image: '',
-            description: 'Dans les communes appartenant à des territoires dont la situation locale ne justifie pas un renforcement des obligations de production, cette obligation est fixée à 20 % de logements sociaux.',
+            description: '<p>Dans les territoires pour lesquels le parc de logements existant ne justifie pas un effort de production supplémentaire, l\'obligation est fixée à 20 % de logements sociaux. La liste de ces territoires est fixée par <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000042219936/" target="_blank">décret</a>.</p>    <p> <a class="epci">EPCI</a> <label class="switch"><input id="switch_checkbox" type="checkbox"><span class="slider round"></span></label> <a class="uu">Unités urbaines</a> </p>',
             location: {
                 center: [-4.88236, 46.71703],
                 zoom: 5.25,
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-            ],
-            onChapterExit: [
-            ]
+            onChapterEnter: [{
+                layer: 'EPCI',
+                opacity: 1
+            },{
+                layer: 'UU',
+                opacity: 1
+            },{
+                layer: 'epci_sru_20pct',
+                opacity: 1
+            },{
+                layer: 'uu_sru_20pct',
+                opacity: 1
+            },{
+                layer: 'epci_50000and15000',
+                opacity: 1
+            },{
+                layer: 'uu_50000and15000',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'EPCI',
+                opacity: 0
+            },{
+                layer: 'UU',
+                opacity: 0
+            },{
+                layer: 'epci_sru_20pct',
+                opacity: 0
+            },{
+                layer: 'uu_sru_20pct',
+                opacity: 0
+            },{
+                layer: 'epci_50000and15000',
+                opacity: 0
+            },{
+                layer: 'uu_50000and15000',
+                opacity: 0
+            }]
         },
         {
             id: '05',

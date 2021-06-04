@@ -205,12 +205,9 @@ map.on("load", function() {
                 });
             });
         }
-        if (chapter.id == "02_bis_bis") {
-            // document.getElementById("switch_checkbox").checked = false;
-            // document.getElementById("epci").style.color = 'white';
-            // document.getElementById("uu").style.color = 'grey';
-            console.log('coucou')
-        }
+        // if (chapter.id == "02_bis_bis") {
+
+        // }
     })
     .onStepExit(response => {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
@@ -343,6 +340,42 @@ map.on("load", function() {
     },firstSymbolId);
 
 
+
+    map.addSource('epci_sru_20pct', {
+        type: 'geojson',
+        data: './data/layers/epci_sru_20pct.geojson'
+    });
+    map.addLayer({
+        'id': 'epci_sru_20pct',
+        'type': 'fill',
+        'source': 'epci_sru_20pct',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'fill-color': '#FFE373',
+            'fill-opacity': 0
+        }
+    },firstSymbolId);
+
+    map.addSource('uu_sru_20pct', {
+        type: 'geojson',
+        data: './data/layers/uu_sru_20pct.geojson'
+    });
+    map.addLayer({
+        'id': 'uu_sru_20pct',
+        'type': 'fill',
+        'source': 'uu_sru_20pct',
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {
+            'fill-color': '#FFE373',
+            'fill-opacity': 0
+        }
+    },firstSymbolId);
+
+
     map.addSource('EPCI', {
         type: 'geojson',
         data: './data/layers/epci.geojson'
@@ -443,7 +476,9 @@ map.on("load", function() {
                     uu[i].style.color = 'white';
                 }
                 map.setLayoutProperty('epci_50000and15000','visibility','none');
+                map.setLayoutProperty('epci_sru_20pct','visibility','none');
                 map.setLayoutProperty('uu_50000and15000','visibility','visible');
+                map.setLayoutProperty('uu_sru_20pct','visibility','visible');
             }
             else {
                 map.setLayoutProperty('UU','visibility','none');
@@ -454,7 +489,9 @@ map.on("load", function() {
                     uu[i].style.color = 'grey';
                 }
                 map.setLayoutProperty('uu_50000and15000','visibility','none');
+                map.setLayoutProperty('uu_sru_20pct','visibility','none');
                 map.setLayoutProperty('epci_50000and15000','visibility','visible');
+                map.setLayoutProperty('epci_sru_20pct','visibility','visible');
             }
         })
     })
