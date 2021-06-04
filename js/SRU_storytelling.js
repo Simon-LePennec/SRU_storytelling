@@ -205,10 +205,11 @@ map.on("load", function() {
                 });
             });
         }
-        if (chapter.id == "02") {
+        if (chapter.id == "02_bis_bis") {
             // document.getElementById("switch_checkbox").checked = false;
             // document.getElementById("epci").style.color = 'white';
             // document.getElementById("uu").style.color = 'grey';
+            console.log('coucou')
         }
     })
     .onStepExit(response => {
@@ -305,6 +306,42 @@ map.on("load", function() {
         }
     },firstSymbolId);
 
+    map.addSource('epci_50000and15000', {
+        type: 'geojson',
+        data: './data/layers/epci_50000and15000.geojson'
+    });
+    map.addLayer({
+        'id': 'epci_50000and15000',
+        'type': 'fill',
+        'source': 'epci_50000and15000',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'paint': {
+            'fill-color': '#ffa825', //#ff9101
+            //'fill-outline-color': '#d1d1d1',
+            'fill-opacity': 0
+        }
+    },firstSymbolId);
+
+    map.addSource('uu_50000and15000', {
+        type: 'geojson',
+        data: './data/layers/uu_50000and15000.geojson'
+    });
+    map.addLayer({
+        'id': 'uu_50000and15000',
+        'type': 'fill',
+        'source': 'uu_50000and15000',
+        'layout': {
+            'visibility': 'none'
+        },
+        'paint': {
+            'fill-color': '#ffa825', //#ff9101
+            //'fill-outline-color': '#d1d1d1',
+            'fill-opacity': 0
+        }
+    },firstSymbolId);
+
 
     map.addSource('EPCI', {
         type: 'geojson',
@@ -362,7 +399,7 @@ map.on("load", function() {
 
     
     map.loadImage(
-        './data/img/Pattern_cross.png',
+        './data/img/Pattern_cross_05.png',
         function (err, image) {
             // Throw an error if something went wrong
             if (err) throw err;
@@ -405,6 +442,8 @@ map.on("load", function() {
                     epci[i].style.color = 'grey';
                     uu[i].style.color = 'white';
                 }
+                map.setLayoutProperty('epci_50000and15000','visibility','none');
+                map.setLayoutProperty('uu_50000and15000','visibility','visible');
             }
             else {
                 map.setLayoutProperty('UU','visibility','none');
@@ -414,6 +453,8 @@ map.on("load", function() {
                     epci[i].style.color = 'white';
                     uu[i].style.color = 'grey';
                 }
+                map.setLayoutProperty('uu_50000and15000','visibility','none');
+                map.setLayoutProperty('epci_50000and15000','visibility','visible');
             }
         })
     })
