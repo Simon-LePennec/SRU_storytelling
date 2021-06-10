@@ -296,16 +296,8 @@ var config = {
                 bearing: 0.00
             },
             onChapterEnter: [
-                {
-                    layer: 'gnpglaciers-2015',
-                    opacity: 0.25
-                }
             ],
             onChapterExit: [
-                {
-                    layer: 'gnpglaciers-2015',
-                    opacity: 0
-                }
             ]
         }
     ]

@@ -16,6 +16,7 @@ var alignments = {
 }
 
 function getLayerPaintType(layer) {
+    console.log(layer)
     var layerType = map.getLayer(layer).type;
     return layerTypes[layerType];
 }
